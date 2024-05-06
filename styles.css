@@ -41,6 +41,7 @@
 
 body {
     min-width: 480px;
+    height: 100%;
 }
 
 /* Header & Navigation */
@@ -130,4 +131,92 @@ nav ul li a {
     /* Light shadow */
     transform: translateY(-3px);
     /* Lift the element by 3 pixels */
+}
+
+/* Calculator Styling */
+
+.calculatorcontainer {
+    background: whitesmoke;
+    border: lightslategray .1px solid;
+    box-shadow: 0 0 5px rgba(10, 53, 171, 0.2);
+    border-radius: 5px;
+    padding: 5px;
+    font-size: .7rem;
+    overflow: hidden;
+}
+
+.calcrow {
+    display: flex;
+    justify-content: left;
+    margin-bottom: 10px;
+}
+
+.formfield {
+    margin: 10px;
+    padding: 5px;
+}
+
+#convert_strengthVolNum {
+    width: 55px;
+}
+
+#convert_per {
+    margin: 3px;
+}
+
+#convert_mL {
+    margin: 3px;
+}
+
+.result {
+    margin: 5px;
+    padding: 5px;
+    font-size: 1.25em;
+    font-weight: bold;
+}
+
+.calculatorcontainer button {
+    font-size: 1rem;
+}
+
+
+/* Footer Settings */
+
+
+footer {
+    display: flex;
+    height: 50px;
+    background-color: rgb(1, 9, 30);
+    color: whitesmoke;
+    margin: 0;
+    padding: 4px;
+    width: 100%;
+
+}
+
+footer ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+}
+
+footer ul li:hover {
+    cursor: pointer;
+    transform: translateY(-2px);
+    font-weight: bolder;
+    font-size: .6rem;
+
+}
+
+footer ul li {
+    display: inline-block;
+    font-size: .5rem;
+}
+
+footer ul li a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    padding: 0 10px;
+    color: whitesmoke;
 }
