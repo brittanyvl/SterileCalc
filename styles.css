@@ -5,7 +5,30 @@
 
 .row {
     display: flex;
+    flex-wrap: wrap;
 }
+
+.container {
+    display: flex;
+    justify-content: center;
+    /* Center the columns horizontally */
+    gap: 10px;
+    /* Gap between columns */
+    margin: 10px;
+    /* Margin around the container */
+    max-width: 100%;
+    /* Ensure the container does not exceed the viewport width */
+}
+
+.column {
+    flex: 1;
+    /* Each column takes up an equal amount of space */
+    padding: 10px;
+    /* Optional: Add some padding inside the columns */
+    box-sizing: border-box;
+    /* Include padding in the column's total width */
+}
+
 
 .left {
     flex: 1;
@@ -14,6 +37,10 @@
 
 .right {
     justify-content: flex-end;
+}
+
+body {
+    min-width: 480px;
 }
 
 /* Header & Navigation */
@@ -31,6 +58,29 @@ header button:hover {
     cursor: pointer;
     transform: translateY(+2px);
     font-size: .6rem;
+}
+
+.intro {
+    width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+}
+
+header h1 {
+    font: size
+}
+
+header h6 {
+    font-weight: lighter;
+}
+
+.textonimage {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 200px;
+    width: 100%;
 }
 
 nav ul {
@@ -57,3 +107,27 @@ nav ul li a {
     color: rgb(0, 0, 0);
     text-decoration: none;
     padding: 0 10px;
+}
+
+#homeSubTag {
+    text-align: center;
+}
+
+/* Cards */
+
+.card {
+    width: 100%;
+    margin: 2px;
+    border: lightslategray 1px solid;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: .7rem;
+
+}
+
+.card:hover {
+    box-shadow: 0 3px 5px rgba(193, 199, 220, 0.3);
+    /* Light shadow */
+    transform: translateY(-3px);
+    /* Lift the element by 3 pixels */
+}
