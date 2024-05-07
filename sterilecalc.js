@@ -49,7 +49,7 @@ function printInjectionVol(element) {
 
 }
 
-/* Doses per Unit Functions */
+/* Doses per Unit Functions 
 function dosesperunit() {
     let calcDoseNum, calcStrengthNum, maxPerVial;
     const perDoseNum = parseInt(document.getElementById('perDoseNum').value);
@@ -137,4 +137,101 @@ function dosesperunit() {
             document.getElementById("perResult").innerHTML = `There are ${patientVialMax} available doses in each vial for a total of ${patientMax} doses in the UOM.  Remember, each preserved vial must be disposed within 28 days of the first puncture.`;
         }
     }
+}*/
+
+
+function dosesPerUnit(perDoseNum, perDoseUnit, per28Days, per28Days, perStrengthNum, perStrengthVol, perStrengthUnit, perVialVol, perQuantity, perPFStatus, perLicense) {
+    let calcDoseNum, calcStrengthNum, maxPerVial;
+
+    // Check if any required fields are blank, if yes, alert and return error.
+    if (isNaN(per28Days) || isNaN(perDoseNum) || isNaN(perStrengthNum) || isNaN(perStrengthVol) || isNaN(perVialVol) || isNaN(perQuantity)) {
+        alert("You are missing a required value; please complete all fields and try again.");
+        document.getElementById("contentResult").innerHTML = "Error";
+        return; // Exit the function early if there's an error
+    }
+
+    //Convert doseNum and strengthNum to mg if needed
+    if (perDoseUnit === 'mg') {
+        calcDoseNum = perDoseNum
+    }
+    if (perStrengthUnit === 'mg') {
+        calcStrengthNum = perStrengthNum
+    }
+    if (perDoseUnit === 'mcg') {
+        calcDoseNum = perDoseNum / 1000
+    }
+    if (perDoseUnit === 'g') {
+        calcDoseNum = perDoseNum * 1000
+    }
+    if (perStrengthUnit === 'mg') {
+        calcStrengthNum = perStrengthNum
+    }
+    if (perStrengthUnit === 'mcg') {
+        calcStrengthNum = perStrengthNum / 1000
+    }
+    if (perStrengthUnit === 'g') {
+        calcStrengthNum = perStrengthNum * 1000
+    }
+
+    // Calculate total drug content in the UOM
+    const totalcontentpervial = ((perStrengthNum * perVialVol) / perStrengthVol);
+    const totalcontent = totalcontentpervial * perQuantity;
+
+    // Calculate Max Possible Doses & per patient max & max per vial 
+    maxPerVial = totalcontentpervial / calcDoseNum;
+    const maxpossible = totalcontent / calcDoseNum;
+    let patientMax, patientVialMax;
+
+    if (per28Days < maxpossible) {
+        patientMax = per28Days;
+    } else {
+        patientMax = maxpossible;
+    }
+
+    patientMax *= perQuantity;
+
+    if (per28Days < totalcontentpervial) {
+        patientVialMax = per28Days;
+    } else {
+        patientVialMax = maxpossible;
+    }
+
+
+    //Calculate Final Results basedon Pharmacy Type & Preservative Status 
+    if (perLicense != '503A') {
+        if (perPFStatus === 'pf') {
+            resultString = `There are ${maxpossible} possible doses but note that unpreserved products must be disposed 4 hours after opening. This could result in signifcant waste, lowering this number.`;
+
+        }
+        else {
+            resultString = `There are ${maxpossible} possible doses but note that preserved vials must be discarded 28 days after their first puncture. Any unused product must be wasted.`;
+        }
+    }
+    else {
+        patientMax = 1
+        if (perPFStatus === 'pf') {
+            resultString = `There is only (1) dose available per vial, for a total of ${patientMax} doses across all ${perQuantity} vials assuming you can complete that many doses before the product
+            s posted Best Use Date. Please note that you must dispose of any unused product 4 hours after the first puncture because each individual vial is preservative free.`;
+        }
+        else {
+            resultString = `There are ${patientVialMax} available doses in each vial for a total of ${patientMax} doses in the UOM.  Remember, each preserved vial must be disposed within 28 days of the first puncture.`;
+        }
+    }
+    return [resultString, maxpossible, patientVialMax, patientMax]
 }
+
+function printDosesPerUnit(element) {
+    const perDoseNum = parseInt(document.getElementById('perDoseNum').value);
+    const perDoseUnit = document.getElementById('perDoseUnit').value;
+    const per28Days = parseInt(document.getElementById('per28Days').value);
+    const perStrengthNum = parseInt(document.getElementById('perStrengthNum').value);
+    const perStrengthVol = parseFloat(document.getElementById('perStrengthVol').value);
+    const perStrengthUnit = document.getElementById('perStrengthUnit').value;
+    const perVialVol = parseInt(document.getElementById('perVialVol').value);
+    const perQuantity = parseInt(document.getElementById('perQuantity').value);
+    const perPFStatus = document.getElementById('perPFStatus').value;
+    const perLicense = document.getElementById('perLicense').value;
+    resultString = dosesPerUnit(perDoseNum, perDoseUnit, per28Days, per28Days, perStrengthNum, perStrengthVol, perStrengthUnit, perVialVol, perQuantity, perPFStatus, perLicense);
+    document.getElementById("perResult").innerHTML = resultString[0];
+}
+
