@@ -152,6 +152,10 @@ a {
 
 }
 
+.calculatorcontainer a {
+    text-decoration: underline;
+}
+
 .calcrow {
     display: flex;
     justify-content: left;
