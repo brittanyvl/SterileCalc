@@ -58,22 +58,20 @@ header button:hover {
     box-shadow: 0 0 5px rgba(10, 53, 171, 0.5);
     cursor: pointer;
     transform: translateY(+2px);
-    font-size: .6rem;
+    font-size: .7rem;
 }
 
 .intro {
-    width: 450px;
+    width: 60%;
     margin-left: auto;
     margin-right: auto;
     margin-top: 50px;
 }
 
-header h1 {
-    font: size
-}
-
-header h6 {
+header h4 {
     font-weight: lighter;
+    padding-bottom: 70px;
+    ;
 }
 
 .textonimage {
@@ -94,14 +92,14 @@ nav ul li:hover {
     cursor: pointer;
     transform: translateY(-2px);
     font-weight: bolder;
-    font-size: .6rem;
+    font-size: .8rem;
 
 }
 
 nav ul li,
 button {
     display: inline-block;
-    font-size: .5rem;
+    font-size: .7rem;
 }
 
 nav ul li a {
@@ -150,6 +148,8 @@ a {
     padding: 5px;
     font-size: .7rem;
     overflow: hidden;
+
+
 }
 
 .calcrow {
@@ -159,7 +159,7 @@ a {
 }
 
 .formfield {
-    margin: 10px;
+    margin: 10px 10px 10px 0px;
     padding: 5px;
 }
 
@@ -184,46 +184,19 @@ a {
 
 .calculatorcontainer button {
     font-size: 1rem;
-}
-
-
-/* Footer Settings */
-
-
-footer {
-    display: flex;
-    height: 50px;
-    background-color: rgb(1, 9, 30);
-    color: whitesmoke;
-    margin: 0;
-    padding: 4px;
-    width: 100%;
 
 }
 
-footer ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
 
+h5 {
+    margin-top: 10px;
+    margin-bottom: 2px;
+    font-size: .7rem;
+    margin-left: 0px;
+    padding-left: 0px;
 }
 
-footer ul li:hover {
-    cursor: pointer;
-    transform: translateY(-2px);
-    font-weight: bolder;
-    font-size: .6rem;
-
-}
-
-footer ul li {
-    display: inline-block;
-    font-size: .5rem;
-}
-
-footer ul li a {
-    color: rgb(0, 0, 0);
-    text-decoration: none;
-    padding: 0 10px;
-    color: whitesmoke;
+.calculatorcontainer,
+li {
+    padding-left: 5px;
 }

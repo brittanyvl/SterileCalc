@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SterileCalc</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="row">
+                <div class="left">
+                    <ul>
+                        <li><a href="index.html">💉SterileCalc</a></li>
+                    </ul>
+                </div>
+                <div class="right">
+                    <ul>
+                        <li><a href="#">Other Resources</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><button>disclaimer</button></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="calcrow">
+        <div class="column">
+            <div class="calculatorcontainer">
+                <h2><i class="fa-solid fa-chart-column"></i> Doses per Unit</h2>
+                <p>Calculating the number of doses available in a product requires an understanding of the following
+                    variables and how they interact; you can use our calculator to obtain a summary without any existing
+                    industry knowledge.
+                <h4>Relevant Factors:</h4>
+                <ul>
+                    <li>Drug Strength</li>
+                    <li>Vial Size</li>
+                    <li>Pack Quantity</li>
+                    <li>Preservative Status</li>
+                    <li>Pharmacy License Type</li>
+                </ul>
+                </p>
+
+                <div class="formfield">
+                    <h3>Drug Protocol Details</h3>
+                    <h5>Prescribed Dose per Injection</h5>
+                    <div class="calcrow">
+                        <input type="number" placeholder="Prescribed Dose" id="perDoseNum">
+                        <select id="perDoseUnit">
+                            <option value="mcg">mcg</option>
+                            <option value="mg" selected>mg</option>
+                            <option value="g">g</option>
+                        </select>
+                    </div>
+                    <h5>How many injections can the patient have per 28 days?</h5>
+                    <div class="calcrow">
+                        <input type="number" placeholder="Maximum Doses" id="per28Days">
+
+                    </div>
+                    <br>
+                    <h3>Drug Details</h3>
+                    <h5>Drug Strength or Concentration</h5>
+                    <div class="calcrow">
+                        <input type="number" placeholder="Drug Strength on Vial" id="perStrengthNum">
+                        <select id="perStrengthUnit">
+                            <option value="mcg">mcg</option>
+                            <option value="mg" selected>mg</option>
+                            <option value="g">g</option>
+                        </select>
+                        <p id="contentPer"> per every </p>
+                        <input type="number" placeholder="1" value="1" id="perStrengthVol">
+                        <p>mL</p>
+                    </div>
+                    <h5>Vial Size/Volume</h5>
+                    <div class="calcrow">
+                        <input type="number" placeholder="mL in each vial" id="perVialVol">
+                        <p>mL</p>
+
+                    </div>
+                    <h5>Vials per UOM</h5>
+                    <div class="calcrow">
+                        <input type="number" value="1" id="perQuantity">
+                    </div>
+                    <h5>Drug Preservative Status</h5>
+                    <div class="calcrow">
+                        <select id="perPFStatus">
+                            <option value="preserved" selected>preserved</option>
+                            <option value="pf">preservative free</option>
+                        </select>
+                    </div>
+                    <br>
+                    <h3>Pharmacy or Supplier Details</h3>
+                    <h5>Supplier License Type</h5>
+                    <div class="calcrow">
+                        <select id="perLicense">
+                            <option value="503A">Patient Specific (503A)</option>
+                            <option value="503B" selected>Bulk In Office (503B)</option>
+                            <option value="commercial">Commercial</option>
+                        </select>
+                    </div>
+                    <br>
+                    <button type="button" id="calculateButton" onclick="dosesperunit()">Calculate</button>
+                    <div class="result" id="perResult">
+                    </div>
+
+
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="sterilecalc.js"></script>
+    <script src="https://kit.fontawesome.com/e642d62004.js" crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>
