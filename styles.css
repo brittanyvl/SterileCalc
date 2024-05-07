@@ -124,6 +124,13 @@ nav ul li a {
     padding: 10px;
     font-size: .7rem;
 
+
+}
+
+.card,
+a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
 }
 
 .card:hover {
