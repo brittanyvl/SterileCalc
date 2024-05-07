@@ -45,6 +45,6 @@ function printInjectionVol(element) {
     const strengthUnit = document.getElementById('convert_strengthUnit').value;
     const userStrengthVolNum = parseFloat(document.getElementById('convert_strengthVolNum').value);
     const result = convertdose(userDoseNum, doseUnit, userStrengthNum, strengthUnit, userStrengthVolNum);
-    document.getElementById(element).innerHTML = "If the patient requires a dose of " + userDoseNum + doseUnit + ", and the drug product contains " + userStrengthNum + strengthUnit + " per every " + userStrengthVolNum + "mL, they would need to inject " + result[0] + " mL or " + result[1] + " units.";
+    document.getElementById(element).innerHTML = "If the patient requires a dose of " + userDoseNum + doseUnit + ", and the drug product contains " + userStrengthNum + strengthUnit + " per every " + userStrengthVolNum + "mL, they would need to inject " + result[0] + "mL or " + result[1] + " units.";
 
 }
