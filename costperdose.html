@@ -2,12 +2,153 @@
 <html lang="en">
 
 <head>
+    <link rel="stylesheet" href="styles.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>SterileCalc</title>
 </head>
 
 <body>
+    <header>
+        <nav>
+            <div class="row">
+                <div class="left">
+                    <ul>
+                        <li><a href="index.html">💉SterileCalc</a></li>
+                    </ul>
+                </div>
+                <div class="right">
+                    <ul>
+                        <li><a href="#">Other Resources</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><button>disclaimer</button></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="calcrow">
+        <div class="column">
+            <div class="calculatorcontainer">
+                <h2><i class="fa-solid fa-circle-dollar-to-slot"></i> Cost Per Dose</h2>
+                <p>Use this calculator to determine the cost per dose for any given sterile drug product given it's
+                    strength, vial size, vial count, preservative status, and pharmacy license. To properly calculate
+                    the available doses, and therefore the costs, all of these factors come into play.
+                    <br>
+                    <br>
+                    The results provided follow <a href="https://www.usp.org/compounding/general-chapter-797"
+                        target="_blank">USP
+                        797 Sterile Preparations guidance</a>. As of this writing UPS 797 requires vials are disposed
+                    (4) hours after puncture for preservative free compounds and (28) days for preserved compounds. This
+                    calculator assumes that the product is within Best Use Date (BUD); USP 797 advises for disposal of
+                    product once the BUD has been reached.
+                    <br>
+                    <br>
+                    This calculator also takes into consideration the purchasing
+                    restrictions set forth in <a
+                        href="https://www.fda.gov/drugs/human-drug-compounding/fdc-act-provisions-apply-human-drug-compounding"
+                        target="_blank">Section
+                        503A and Section 503B of the FD&C Act</a>, both of which are provisions that address
+                    requirements for the production of human drug compounds. This requires that we ask for your
+                    patient's maximum doses in a 28 day window, as vials purchased from 503A licensed compound
+                    pharmacies can only be administered to a single patient. Vials purchased from commercial
+                    manufacturers or FDA recognized 503B pharmacies are assumed to be shared across patients.
+                    <br>
+                    <br>
+                    When completing this form for lyophilized product you will need to enter the drug strength once
+                    reconstituted; for example, if you had 500mg of drug product and diluted it with 5mL of
+                    bacteriostatic water you would enter the drug strength as 100mg per every 1 mL.
+                <h4>Relevant Factors:</h4>
+                <ul>
+                    <li>Quoted Cost</li>
+                    <li>Drug Strength</li>
+                    <li>Vial Size</li>
+                    <li>Pack Quantity</li>
+                    <li>Preservative Status</li>
+                    <li>Pharmacy License Type</li>
+                </ul>
+                </p>
+
+                <div class="formfield">
+                    <h3>Drug Protocol Details</h3>
+                    <h5>Prescribed Dose per Injection</h5>
+                    <div class="calcrow">
+                        <input type="number" placeholder="Prescribed Dose" id="costDoseNum">
+                        <select id="costDoseUnit">
+                            <option value="mcg">mcg</option>
+                            <option value="mg" selected>mg</option>
+                            <option value="g">g</option>
+                        </select>
+                    </div>
+                    <h5>How many injections can the patient have per 28 days?</h5>
+                    <div class="calcrow">
+                        <input type="number" placeholder="Maximum Doses" id="cost28Days">
+
+                    </div>
+                    <br>
+                    <h3>Drug Details</h3>
+                    <h5>Drug Cost</h5>
+                    <div class="calcrow">
+                        <input type="number" placeholder="$0.00" id="costCost" step="0.01">
+                    </div>
+                    <h5>Drug Strength or Concentration</h5>
+                    <div class="calcrow">
+                        <input type="number" placeholder="Drug Strength on Vial" id="costStrengthNum">
+                        <select id="costStrengthUnit">
+                            <option value="mcg">mcg</option>
+                            <option value="mg" selected>mg</option>
+                            <option value="g">g</option>
+                        </select>
+                        <p id="costPer"> per every </p>
+                        <input type="number" placeholder="1" value="1" id="costStrengthVol">
+                        <p>mL</p>
+                    </div>
+                    <h5>Vial Size/Volume</h5>
+                    <div class="calcrow">
+                        <input type="number" placeholder="mL in each vial" id="costVialVol">
+                        <p>mL</p>
+
+                    </div>
+                    <h5>Vials per Unit</h5>
+                    <div class="calcrow">
+                        <input type="number" value="1" id="costQuantity">
+                    </div>
+                    <h5>Drug Preservative Status</h5>
+                    <div class="calcrow">
+                        <select id="costPFStatus">
+                            <option value="preserved" selected>preserved</option>
+                            <option value="pf">preservative free</option>
+                        </select>
+                    </div>
+                    <br>
+                    <h3>Pharmacy or Supplier Details</h3>
+                    <h5>Supplier License Type</h5>
+                    <div class="calcrow">
+                        <select id="costLicense">
+                            <option value="503A">Patient Specific (503A)</option>
+                            <option value="503B" selected>Bulk In Office (503B)</option>
+                            <option value="commercial">Commercial</option>
+                        </select>
+                    </div>
+                    <br>
+                    <button type="button" id="costcalculateButton"
+                        onclick="printCostPerDose('perResult')">Calculate</button>
+                    <div class="result" id="costResult">
+                    </div>
+
+
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="sterilecalc.js"></script>
+    <script src="https://kit.fontawesome.com/e642d62004.js" crossorigin="anonymous"></script>
+
 
 </body>
 

@@ -149,4 +149,27 @@ function printDosesPerUnit(element) {
     document.getElementById("perResult").innerHTML = resultString[0];
 }
 
+function getCostPerDose(costCost, costDoseNum, costDoseUnit, cost28Days, costStrengthNum, costStrengthVol, costStrengthUnit, costVialVol, costQuantity, costPFStatus, costLicense) {
+    const dosesPerUnit = getDosesPerUnit(costDoseNum, costDoseUnit, cost28Days, costStrengthNum, costStrengthVol, costStrengthUnit, costVialVol, costQuantity, costPFStatus, costLicense);
+    possibleDoses = dosesPerUnit[2];
+    let finalCost = costCost / possibleDoses;
+    finalCost = parseFloat(finalCost.toFixed(2));
+    resultString = `The cost per dose is $${finalCost} assuming you use all allowed product prior to the Best Use Date. The provided cost does honor USP 797 guidelines on vial access rules and 503A rules around patient specific restrictions, when indicated on your form submission.`;
+    return [resultString, finalCost];
+}
 
+function printCostPerDose() {
+    const costDoseNum = parseInt(document.getElementById('costDoseNum').value);
+    const costDoseUnit = document.getElementById('costDoseUnit').value;
+    const cost28Days = parseInt(document.getElementById('cost28Days').value);
+    const costStrengthNum = parseInt(document.getElementById('costStrengthNum').value);
+    const costStrengthVol = parseFloat(document.getElementById('costStrengthVol').value);
+    const costStrengthUnit = document.getElementById('costStrengthUnit').value;
+    const costVialVol = parseInt(document.getElementById('costVialVol').value);
+    const costQuantity = parseInt(document.getElementById('costQuantity').value);
+    const costPFStatus = document.getElementById('costPFStatus').value;
+    const costLicense = document.getElementById('costLicense').value;
+    const costCost = parseFloat(document.getElementById('costCost').value);
+    const resultString = getCostPerDose(costCost, costDoseNum, costDoseUnit, cost28Days, costStrengthNum, costStrengthVol, costStrengthUnit, costVialVol, costQuantity, costPFStatus, costLicense);
+    document.getElementById("costResult").innerHTML = resultString[0];
+}
