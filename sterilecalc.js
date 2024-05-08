@@ -180,6 +180,8 @@ function printCostPerDose() {
 }
 
 function getDaysUntilBUD() {
-
-    document.getElementById("budResult").innerHTML = resultString;
+    const selectedDate = new Date(document.getElementById('selectedBUD').value);
+    const today = new Date();
+    const diffInDays = Math.ceil((selectedDate - today) / (1000 * 60 * 60 * 24));
+    document.getElementById('budResult').innerText = `There are ${diffInDays} days until the Best Use Date.`;
 }
