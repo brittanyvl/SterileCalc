@@ -1,3 +1,8 @@
+function disclaimer() {
+    alert("This is a student project meant to be used as an educational tool for procurement professionals and those new to purchasing sterile drugs; it is not a clinical aid and no functions on this site are intended as medical advice.  These tools are not a substitute or alternative to sound clinical judgement from an appropriately licensed healthcare provider. If you are purchasing drugs it is your responsibility, as well as the licensed provider whose license you use for purchasing, to understand the regulations and contracts in place in your unique and specific supply chain. USP guidelines, and other best practices, are not publically available and these tools may not be updated in sync with updates from USP or the FDA. You use these tools at your own risk and hold it's creator harmless. If you are a patient with concerns about a prescription please consult your provider or pharmacist.");
+
+}
+
 function convertdose(userDoseNum, doseUnit, userStrengthNum, strengthUnit, userStrengthVolNum) {
     let calcDoseNum, calcStrengthNum;
 
