@@ -179,3 +179,28 @@ function printCostPerDose() {
     document.getElementById("costResult").innerHTML = resultString[0];
 }
 
+function getDaysUntilBUD() {
+    const selectedBUDStr = document.getElementById('selectedBUD').value;
+    const selectedBUDDate = new Date(selectedBUDStr);
+    const currentDate = new Date();
+    const currentDateTimestamp = currentDate.getTime();
+    const selectedBUDTimestamp = selectedBUDDate.getTime();
+    const deltaMS = selectedBUDTimestamp - currentDateTimestamp;
+    const daysUntilSelectedDate = Math.floor(deltaMS / (1000 * 60 * 60 * 24));
+
+    // Format the selected date as MM/DD/YYYY
+    const formattedSelectedBUDDate = selectedBUDDate.toLocaleDateString('en-US', {
+        month: '2-digit',
+        day: '2-digit',
+        year: 'numeric'
+    });
+
+    let resultString;
+    if (selectedBUDDate <= currentDate) {
+        resultString = "Please select a date in the future.";
+    } else {
+        resultString = `There are ${daysUntilSelectedDate} days until the Best Use Date of ${formattedSelectedBUDDate}.`;
+    }
+
+    document.getElementById("budResult").innerHTML = resultString;
+}
