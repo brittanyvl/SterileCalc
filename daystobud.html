@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SterileCalc</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="row">
+                <div class="left">
+                    <ul>
+                        <li><a href="index.html">💉SterileCalc</a></li>
+                    </ul>
+                </div>
+                <div class="right">
+                    <ul>
+                        <li><a href="sterileprocurementresources.html">Other Resources</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="https://github.com/brittanyvl/SterileCalc" target="_blank">Source Code</a></li>
+                        <li><button onclick="disclaimer()">disclaimer</button></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="row">
+        <div class="column">
+            <div class="calculatorcontainer">
+                <h2><i class="fa-regular fa-calendar-days"></i> Days until Best Use Date</h2>
+                <p>All sterile medication will have a Best Use Date. If you are purchasing from a commercial distributor
+                    you likely will have a contract stipulating 90 to 180 days of shelf life, however, if you source
+                    compounded sterile drugs the Best Use Date may be much shorter. You can use this calculator to
+                    determine how many days exist between today's date and the pharmacy or manufacturer's best use date.
+                </p>
+
+                <div class="formfield">
+                    <div class="calcrow">
+                        <label for="selectedDate" id="budLabel">Best Use Date: </label>
+                        <input type="date" id="selectedBUD" name="selectedBUD">
+                    </div>
+                    <button type="button" id="calculateButton" onclick="getDaysUntilBUD()">Calculate</button>
+                    <div class="result" id="budResult">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    </div>
+
+    <script src="sterilecalc.js"></script>
+    <script src="https://kit.fontawesome.com/e642d62004.js" crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>

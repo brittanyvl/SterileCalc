@@ -204,3 +204,8 @@ h5 {
 li {
     padding-left: 5px;
 }
+
+#budLabel {
+    padding: 6px;
+    font-weight: bolder;
+}

@@ -178,3 +178,4 @@ function printCostPerDose() {
     const resultString = getCostPerDose(costCost, costDoseNum, costDoseUnit, cost28Days, costStrengthNum, costStrengthVol, costStrengthUnit, costVialVol, costQuantity, costPFStatus, costLicense);
     document.getElementById("costResult").innerHTML = resultString[0];
 }
+
