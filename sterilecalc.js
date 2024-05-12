@@ -124,7 +124,7 @@ function getDosesPerUnit(perDoseNum, perDoseUnit, per28Days, perStrengthNum, per
             resultString = `There are ${maxPossibleDoses} potential ${perDoseNum}${perDoseUnit} doses in the described unit. You indicated that the product is preservative free, so remembeer that USP 797 guidelines require disposal 4 hours after first accessing the vial, or once the BUD has been reached, whichever occurs first.`
         }
         else { // is preserved
-            resultString = `There are ${maxPossibleDoses} potential ${perDoseNum}${perDoseUnit} doses in the described unit. You indicated that the product is preserved, so remembeer that USP 797 guidelines require disposal 28 days after first accessing the vial, or once the BUD has been reached, whichever occurs first.`
+            resultString = `There are ${maxPossibleDoses} potential ${perDoseNum}${perDoseUnit} doses in the described unit. You indicated that the product is preserved, so remember that USP 797 guidelines require disposal 28 days after first accessing the vial, or once the BUD has been reached, whichever occurs first.`
         }
 
     }
