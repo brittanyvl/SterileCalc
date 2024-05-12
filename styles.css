@@ -209,3 +209,12 @@ li {
     padding: 6px;
     font-weight: bolder;
 }
+
+img {
+    width: 100%;
+    border-radius: 20px;
+}
+
+.decoratelink {
+    text-decoration: underline;
+}
